@@ -21,15 +21,20 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
     },
     username: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(20),
       allowNull: false,
       unique: true
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
       unique: true
     },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    imageUrl: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',

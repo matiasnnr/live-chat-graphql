@@ -28,7 +28,13 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      unique: true
+      unique: true,
+      validate: {
+        isEmail: {
+          args: true,
+          msg: 'must be a valid email address' // mensaje a retornar en caso de que la validación no se cumpla
+        }
+      }
     },
     password: {
       type: DataTypes.STRING,
